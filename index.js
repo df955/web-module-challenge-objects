@@ -146,7 +146,7 @@ function getLastReview(reviews) {
   return reviews[reviews.length-1].name + " gave the restaurant a " + reviews[reviews.length-1].rating + " star review, and their feedback was: " + reviews[reviews.length-1].feedback;
 } 
 
-
+/* */
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
 
