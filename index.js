@@ -6,7 +6,6 @@
 ///////////////Menu Items (MVP)///////////////////
 const latte = {name: "Cafe Latte", price: 4, category: "Drinks"};
 const breakfastBurrito = {name: "Breakfast Burrito", price: 16, category:"Breakfast"};
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1a: Make a function that builds objects🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Add to the function createMenuItems below so it will create objects following the same format found above for latte and breakfastBurrito (name, price, category).  
 The function should:
@@ -16,9 +15,18 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+    const taco = {name: "taco", price: 8, category: "lunch"};
+    const pizza = {name: "Pizza" , price: 5, category: "lunch"};
+    const pasta = {name: "Spaghetti and Meatballs", price: 12, category: "dinner"}
+    const steak = {name: "Ribeye", price: 25, category: "dinner"};
+    return {name, price, category};
 }
+console.log(createMenuItem('taco', 8, "lunch"));
+console.log(createMenuItem('Pizza', 5, "lunch"));
+console.log(createMenuItem('Spaghetti and Meatballs', 12, "dinner"));
+console.log(createMenuItem('Ribeye', 25, "dinner"));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -29,6 +37,7 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+
 
 
 
@@ -48,9 +57,20 @@ Using the burger object below do the following:
 export const burger = {
   name: "Burger", 
   price: 18, 
-  category: "Lunch", 
-  /*Your code here*/
-}
+  category: "Lunch",
+  discount: function(string){
+    let discountedPrice;
+    if(string == "teacher"){
+       discountedPrice = 18 - (18 *0.25);
+    }else if(string == "student"){
+      discountedPrice = 18 - (18*0.1);
+      }else if(string == "public"){
+        discountedPrice = 18;
+      }
+      return discountedPrice;
+    }
+  }
+console.log(burger.discount("public"));
 
 
 
@@ -63,13 +83,14 @@ const reviews = [
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." },
     {name: "Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."},
-    {name: "Reyna", rating: 3.5, feedback: ""},
+    {name: "Reyna", rating: 3.5, feedback: "this place is chill with really cool people, great for getting work done on weekdays"},
+    {name:"Jorge", rating: 3.5, feedback:"I'm horrified to say that this is one of the absolutely best places to eat"},
 ]
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
-*/
+*/ console.log(reviews[5]);
 
 
 
@@ -78,8 +99,7 @@ Using the reviews array above:
 Using the reviews array above do the following: (no function needed) 
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
-*/
-
+*/ console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -103,10 +123,10 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
-}
-
+function getReviewByIndex(reviews, i){
+   return reviews[i].name + " gave the restaurant a " + reviews[i].rating + " star review, and their feedback was: " + reviews[i].feedback;
+  }
+console.log(getReviewByIndex(reviews, 2));
 
   
 
@@ -122,8 +142,8 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(reviews) {
+  return reviews[reviews.length-1].name + " gave the restaurant a " + reviews[reviews.length-1].rating + " star review, and their feedback was: " + reviews[reviews.length-1].feedback;
 } 
 
 
